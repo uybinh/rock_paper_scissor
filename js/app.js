@@ -26,8 +26,9 @@ function createButtons () {
     }
   })
   buttonReset.addEventListener('click', resetGame)
-  body.removeChild(document.querySelector('button[name="start"'))
+  body.removeChild(document.querySelector('#start'))
 }
+
 function removeButtons () {
   let buttons = document.getElementsByTagName('button')
   while (buttons.length > 0) buttons[0].parentNode.removeChild(buttons[0])
@@ -36,12 +37,11 @@ function removeButtons () {
 function gameStart () {
   const body = document.querySelector('body')
   const startButton = document.createElement('button')
-  startButton.setAttribute('name', 'start')
+  startButton.id = 'start'
   startButton.setAttribute('type', 'submit')
-  startButton.addEventListener('click', createButtons)
   startButton.textContent = 'Start Game'
   body.appendChild(startButton)
-  console.log(document.getElementsByTagName('body'))
+  startButton.addEventListener('click', createButtons)
 }
 
 function playRound (playerSelection) {
